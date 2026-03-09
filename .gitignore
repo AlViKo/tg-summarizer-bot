@@ -1,0 +1,23 @@
+# Секреты
+.env
+.env.save
+
+# Telethon сессии (содержат авторизационные данные)
+*.session
+*.session-journal
+
+# Python мусор
+__pycache__/
+*.pyc
+*.pyo
+
+# Логи
+logs/
+*.log
+
+# Pytest
+.pytest_cache/
+
+# Виртуальное окружение
+venv/
+.venv/
