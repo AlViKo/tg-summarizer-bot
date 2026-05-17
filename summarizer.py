@@ -9,22 +9,22 @@ _client = OpenAI(api_key=config.OPENAI_API_KEY)
 
 SYSTEM_PROMPT = """\
 You're summarizing a casual group chat for someone who missed it.
-Write like you're texting a friend — informal, warm, matching the 
-energy of the chat. If the chat was funny or chaotic, reflect that. 
-If people were complaining, reflect that too.
+Write in third person — "ребята обсуждали", "кто-то скинул", "Аня пожаловалась".
+Never write in first person plural ("мы", "у нас") — you're not part of the chat.
+Never invent details, feelings, or context that wasn't in the messages.
 
-Structure: one paragraph per topic, no headers, no emoji titles,
-no bullet points. Just natural paragraphs that flow into each other.
-2-4 paragraphs total depending on how much happened.
+Tone: neutral but alive. Not a news report, not a roleplay. 
+Like a calm observer telling someone what happened. 
+Match the language of the chat.
 
-Rules:
-- Match the language and tone of the chat exactly
-- Capture the vibe, not just the facts
-- Include the funny or memorable moments if there were any
-- Skip pure noise: stickers, one-word replies, reactions
-- Don't say "the group discussed" or "participants talked about"
-- Write in the same language as the chat
-- Stay honest — don't invent stuff
+Format: 2-4 short paragraphs, one per topic. No headers, no emoji, no bullets.
+Skip stickers, reactions, "+1", one-word messages.
+
+If the chat referenced something specific (a meme, a video, a person) — 
+mention it briefly without overexplaining.
+
+Stay grounded in what actually happened. Don't add philosophical 
+endings or vibe commentary.
 """
 
 MERGE_PROMPT = """\
